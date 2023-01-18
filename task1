@@ -1,1 +1,104 @@
 
+let liste=document.querySelector("ul")
+let button=document.querySelector("button")
+button.addEventListener("click",add)
+let input=document.querySelector("input")
+
+input.innerHTML
+
+function add(){
+    if ( input.value=="") {
+        alert("try to type something");
+    }
+    else{
+        liste.innerHTML+=`<li> <input type="checkbox" id="check">  ${input.value} <button onclick="del()">delete</button> </li>`;
+
+    input.value="";
+}
+}
+
+document.body.addEventListener("keypress", (e)=>{
+    if (e.key=="Enter"){
+        add()
+     }
+})
+let check=document.getElementById("check")
+input.addEventListener(check,chocher)
+function chocher()
+    if(check.checked){
+        input.value.style.textdecoration="line-through";
+
+    }
+
+
+
+
+
+
+<!DOCTYPE htmllet liste=document.querySelector("ul")
+let button=document.querySelector("button")
+button.addEventListener("click",add)
+let input=document.querySelector("input")
+
+input.innerHTML
+
+function add(){
+    if ( input.value=="") {
+        alert("try to type something");
+    }
+    else{
+        liste.innerHTML+=`<li> <input type="checkbox" id="check">  ${input.value} <button onclick="del()">delete</button> </li>`;
+
+    input.value="";
+}
+}
+
+document.body.addEventListener("keypress", (e)=>{
+    if (e.key=="Enter"){
+        add()
+     }
+})
+let check=document.getElementById("check")
+input.addEventListener(check,chocher)
+function chocher()
+    if(check.checked){
+        input.value.style.textdecoration="line-through";
+
+    }
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> To do list </title>
+</head>
+<body>
+    <h1>To do list </h1>
+    <input type="text">
+    <button >add todo</button>
+    <ul id="list"></ul>
+    
+</body>
+<script src="todo.js"> </script>
+
+</html>>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> To do list </title>
+</head>
+<body>
+    <h1>To do list </h1>
+    <input type="text">
+    <button >add todo</button>
+    <ul id="list"></ul>
+    
+</body>
+<script src="todo.js"> </script>
+
+</html>
