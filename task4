@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+    <h1> Interface Corona </h1>
+    <input type="text">
+    <button onclick=" AjoutPersonne()">Ajouter</button>
+    <br>
+
+    <h3>Enregistré</h3>
+    <ul id="liste1"></ul>
+    <br>
+    <h3>Vacciné</h3>
+    <ul id="liste2"></ul>
+
+ 
+</body>
+<script>
+    let input=document.querySelector("input")
+    let liste1=document.getElementById("liste1")
+    let liste2=document.getElementById("liste2")
+    let button=document.querySelector("button")
+    
+    function AjoutPersonne(){
+        if(input.value==''){
+            alert("please type something")
+            return;
+        }
+        liste1.innerHTML+=`<li> ${input.value} <button onclick="vaccine(this)">X</button> </li>`
+        console.log(liste1)
+        input.value='';
+    }
+    
+    function vaccine(e) {
+        e.parentElement.lastElementChild.style.background="red";
+        let li=document.createElement("li")
+        li.id="k"
+        li.innerHTML+=e.parentElement.innerHTML
+        liste2.append(li)
+        e.parentElement.remove()
+        li.addEventListener("click",function(){
+            document.getElementById("k").remove();
+            console.log(liste2)
+        })
+    }
+    
+
+
+</script>
+</html>
