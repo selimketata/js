@@ -35,7 +35,6 @@
         display=`url(${uploadedImage})`;
     });
     reader.readAsDataURL(this.files[0]);
-    console.log("display")
 
 });
 let i=0
@@ -56,8 +55,7 @@ let i=0
         let button=document.createElement("button");
         button.innerText="delete";
         let picture=document.createElement("div");
-        picture.style.backgroundImage=display;
-        console.log(picture)
+        picture.style.backgroundImage=display
         element.appendChild(nom);
         element.appendChild(picture);
         element.appendChild(button);
