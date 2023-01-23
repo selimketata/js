@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste App</title>
+    <style>
+        h1{
+            
+            font-size: 50px;
+        }
+        button{
+            width:300px;
+            height:55px;
+            text-align: start;
+            font-size: 20px;
+            position:absolute;
+            top:125px;
+            left:350px
+            
+        }
+        .ligne{
+            font-weight: bold;
+        }
+        
+        input{
+            width: 300px;
+            height:50px;
+            font-size:20px;
+        }
+        ul{
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>List App :</h1>
+         <input type="text">
+         <button onclick="handleAjout()">Ajouter dans la liste</button>   <br>
+    <ul></ul>
+ 
+</body>
+<script>
+    let input=document.querySelector("input")
+    let para=document.getElementById("para")
+    let liste=document.querySelector("ul")
+    let button=document.querySelector("button")
+    input.addEventListener("keydown",handleChange)
+
+    function handleChange(){
+        let para=document.createElement("p")
+        para.innerHTML=input.value
+        para.className="ligne"
+        button.innerHTML=`Ajouter ${para.innerHTML} dans la liste`
+    }
+   
+    function handleAjout(){
+        if(input.value==''){
+            alert("please type something")
+            return;
+        }
+        liste.innerHTML+=`<li> ${input.value} </li>`
+        input.value='';
+    }
+
+
+</script>
+</html>
