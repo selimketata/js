@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestion des étudiants</title>
+</head>
+<body>
+    <h1>gestion des étudiants</h1>
+
+    <label for="nom">Nom et Prénom</label>
+    <input type="text" id="nom">
+    
+
+    <label for="img">choisir un fichier </label>
+    <input type="file" id="img" name="img" accept="image/*">
+
+    <button onclick="AjoutPost()">poster</button>*
+
+    <ul></ul>
+ 
+</body>
+<script>
+    let liste=document.querySelector("ul")
+    let input=document.querySelector("input")
+    let file=document.getElementById("img");
+    let uploadedImage="";
+    let display=document.createElement("img");
+
+    file.addEventListener("change",function(){
+    const reader=new FileReader();
+    reader.addEventListener("load",()=>{
+        uploadedImage=reader.result;
+        display=`url(${uploadedImage})`;
+    });
+    reader.readAsDataURL(this.files[0]);
+    console.log("display")
+
+});
+let i=0
+    function AjoutPost() {
+        if (input.value==""){
+        alert("nom et prenom");
+        return;
+        }
+        if (file.files.length==0){
+        alert("probleme d'image");
+        return;
+        }
+        let element=document.createElement("li");
+         element.id="etudiant"+i;
+         i++;
+        let nom=document.createElement("span");
+        nom.innerHTML=input.value;
+        let button=document.createElement("button");
+        button.innerText="delete";
+        let picture=document.createElement("div");
+        picture.style.backgroundImage=display;
+        console.log(picture)
+        element.appendChild(nom);
+        element.appendChild(picture);
+        element.appendChild(button);
+        liste.append(element)
+        button.addEventListener("click",deleteEtudiant);
+        input.value="";
+
+}
+
+function deleteEtudiant(e){
+    document.getElementById(e.target.parentElement.id).remove();
+
+}
+
+
+    
+
+</script>
+</html>
